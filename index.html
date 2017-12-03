@@ -1,0 +1,153 @@
+<!DOCTYPE html> <!--//python -m SimpleHTTPServer 8000-->
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" contents="width=device-width , initial-scale=1.0" />
+		<meta charset="UTF-8">
+
+    	<!--<meta name="google-signin-scope" content="profile email">
+   		<meta name="google-signin-client_id" content="SEU_ID_DO_CLIENTE">
+   		<script src="https://apis.google.com/js/platform.js" async defer></script> -->
+
+		<title>MyKanban_Boots</title>
+		
+		<link rel="stylesheet" type="text/css" href="css\bootStrap_Voxus.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+		<script> 
+			$(function() {
+				$('#jumbotron').load("Standard.html"); 
+			}); 
+		</script> 
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+    	  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    	<![endif]-->	
+
+	</head>
+
+	<body>
+		<nav class="navbar navbar-fixed-top navbar-inverse navbar-alpha">
+        	<div class="container">
+            	<div class="navbar-header">
+            		<a href="#" class="navbar-brand">LOGO</a>
+            		<button type="button" class="navbar-toggle collapsed"
+            		        data-toggle="collapse" data-target="#barra-nav">
+            		<span class="sr-only">Alternar Menu</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		</button>
+            	</div>
+            	<div class="collapse navbar-collapse" id="barra-nav">
+            		<ul class="nav navbar-nav navbar-right" id="nav-ul">
+						<li> <a href="#">Teste Voxus</a>  </li>
+						<li> <a href="#">MyKanban</a> 	 </li>
+
+						<li class="divisor" role="separator"></li>
+						<img class="mini" id="user-photo-mini" src="https://mariovalney.com/wp-content/uploads/2015/06/user-anonimo.jpg">
+						<li class="dropdown">
+
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								LogIn <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">								
+								<li><a class="btn " data-toggle="modal" data-target="#janela">Log In  </a></li>
+								<li><a class="btn btn-danger" data-toggle="modal" data-target="#janelaLogGoogle">Google</a></li>
+								<li><a class="btn" onclick="logOut()">Log Out</a></li>
+							</ul>
+						</li>
+					</ul>
+            	</div>
+            </div>
+        </nav>
+
+        <form class="modal fade" id="janela">
+        	<div class="modal-dialog">
+        		<div class="modal-content">
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span class="glyphicon glyphicon-remove"></span>
+        				</button>
+        				Dados de Login
+        			</div>
+        			<div class="modal-body">
+        				<label for="login">Login:</label>
+						<input type="text" name="login" id="login" class="form-control"/>
+						<label for="pass">Senha:</label>
+						<input type="password" name="pass" id="pass" class="form-control" />
+						
+        			</div>
+        			<div class="modal-footer">
+	        				<button type="button" class="btn btn-danger col-sm-5" data-dismiss="modal"> Cancelar </button> 				
+							<button type="submit" class="btn btn-primary col-sm-5" >Entrar</button>
+        			</div>	        	
+				</div>
+			</div>
+        </form>
+
+        <!-- Modal LogGoogle-->
+
+         <form class="modal fade modal-dialogG" id="janelaLogGoogle">
+         	<meta name="google-signin-scope" content="profile email">
+	   		<meta name="google-signin-client_id" content="248474829798-77efb9hauptbbruv6g0ldl6dts318orj.apps.googleusercontent.com">
+	   		<script src="https://apis.google.com/js/platform.js" async defer></script>   			
+
+        	<div class="modal-dialog ">
+        		<div class="modal-content">
+        			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span class="glyphicon glyphicon-remove"></span>
+        				</button>
+        				
+        				Google Login
+
+        			</div>
+        			<div class="modal-body">        				
+
+
+        				<div class="user">
+					    	<img id="user-photo" src="https://mariovalney.com/wp-content/uploads/2015/06/user-anonimo.jpg">
+					      	<h1>Olá, <span id="user-name">visitante</span>!</h1>
+					      	<p id="user-email"></p>
+					    </div>
+					    <div id="divLog" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" ></div>
+					 	
+
+        			</div>
+        			<div class="modal-footer">
+	        				
+        			</div>	        	
+				</div>
+			</div>
+        </form>
+
+        <!-- Modal LogGoogle-->
+        <div class="jumbotron" id="jumbotron">
+        	
+        </div>
+        
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<script src="js\Scripts.js" type="text/javascript"></script>			    
+		<script type="text/javascript">
+			$(function(){
+				$('[data-toggle="tooltip"]').tooltip()
+				$('[data-toggle="popover"]').popover()
+			}) 
+		</script>
+
+	</body>
+
+</html>
